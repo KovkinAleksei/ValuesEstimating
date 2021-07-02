@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValuesEstimatingUI", "ValuesEstimatingUI\ValuesEstimatingUI.csproj", "{D3D0C658-CD2D-4EBF-88BF-96AA85595146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValuesEstimating", "ValuesEstimating\ValuesEstimating.csproj", "{3D42750D-514B-4B45-A9A5-B57CCFCFBBF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3D0C658-CD2D-4EBF-88BF-96AA85595146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D0C658-CD2D-4EBF-88BF-96AA85595146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3D0C658-CD2D-4EBF-88BF-96AA85595146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3D0C658-CD2D-4EBF-88BF-96AA85595146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D42750D-514B-4B45-A9A5-B57CCFCFBBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D42750D-514B-4B45-A9A5-B57CCFCFBBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D42750D-514B-4B45-A9A5-B57CCFCFBBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D42750D-514B-4B45-A9A5-B57CCFCFBBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2C1A179-E576-43B5-8884-79DE8EFB6DCA}
+	EndGlobalSection
+EndGlobal
