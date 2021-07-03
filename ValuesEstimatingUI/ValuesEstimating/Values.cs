@@ -21,10 +21,15 @@ namespace ValuesEstimating
         public void Add(string numbers)
         {
             // Удаление старых значений
-            for (int j = 0; j < _values.Count; j++)
-                _values.RemoveAt(j);
+            _values.RemoveRange(0, _values.Count);
+
+            if (numbers.Length == 0)
+                return;
 
             // Деление строки
+            if (numbers[numbers.Length - 1] == ' ')
+                numbers = numbers.Remove(numbers.Length - 1, 1);
+
             string[] splitNumbers = numbers.Split(new char[] { ' ' });
 
             // Добавление значений к серии измерений
@@ -36,6 +41,17 @@ namespace ValuesEstimating
                     _values.Add(convertedNumber);
                 else
                     throw new Exception("Невозможно перевести введёные значения в числовой формат");
+            }
+        }
+
+        /// <summary>
+        /// Возвращает кол-во измерений в серии
+        /// </summary>
+        public int Count
+        {
+            get
+            {
+                return _values.Count;
             }
         }
     }

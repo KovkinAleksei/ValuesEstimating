@@ -20,7 +20,6 @@ namespace ValuesEstimatingUI
         // Введённые значения
         bool input = false;
         bool mainError = false;
-        bool accuracy = false;
 
         public MainForm()
         {
@@ -31,7 +30,7 @@ namespace ValuesEstimatingUI
 
             // Скрытие элементов
             accuracyClassLabel.Visible = false;
-            accuracyClassTextBox.Visible = false;
+            accuracyClassComboBox.Visible = false;
             errorCharacterComboBox.Visible = false;
             errorCharacterLabel.Visible = false;
             resultLabel.Visible = false;
@@ -43,8 +42,29 @@ namespace ValuesEstimatingUI
             errorCharacterComboBox.Items.Add("Мультипликативная");
             errorCharacterComboBox.Items.Add("Аддитивная и мультипликативная");
 
+            // Добавление в список доверительных вероятностей
+            probabilityComboBox.Items.Add("0,95");
+            probabilityComboBox.Items.Add("0,99");
+            probabilityComboBox.Items.Add("0,999");
+
+            // Добавление в список классов точности
+            accuracyClassComboBox.Items.Add("0,05");
+            accuracyClassComboBox.Items.Add("0,1");
+            accuracyClassComboBox.Items.Add("0,2");
+            accuracyClassComboBox.Items.Add("0,5");
+            accuracyClassComboBox.Items.Add("1,0");
+            accuracyClassComboBox.Items.Add("1,5");
+            accuracyClassComboBox.Items.Add("2,5");
+            accuracyClassComboBox.Items.Add("4,0");
+
             // Выбор аддитивной погрешности
             errorCharacterComboBox.SelectedIndex = 0;
+
+            // Выбор доверительной погрешности 0,95
+            probabilityComboBox.SelectedIndex = 0;
+
+            // Выбор класса точности 0,05
+            accuracyClassComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -55,9 +75,11 @@ namespace ValuesEstimatingUI
             mainErrorRateLabel.Visible = true;
             mainErrorRateTextBox.Visible = true;
             accuracyClassLabel.Visible = false;
-            accuracyClassTextBox.Visible = false;
+            accuracyClassComboBox.Visible = false;
             errorCharacterComboBox.Visible = false;
             errorCharacterLabel.Visible = false;
+
+            Process();
         }
 
         /// <summary>
@@ -68,58 +90,10 @@ namespace ValuesEstimatingUI
             mainErrorRateLabel.Visible = false;
             mainErrorRateTextBox.Visible = false;
             accuracyClassLabel.Visible = true;
-            accuracyClassTextBox.Visible = true;
+            accuracyClassComboBox.Visible = true;
             errorCharacterComboBox.Visible = true;
             errorCharacterLabel.Visible = true;
-        }
 
-        /// <summary>
-        /// Сохранение серии измерений
-        /// </summary>
-        private void inputButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                values.Add(MeasurementTextBox.Text);
-                input = true;
-                Process();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, " ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// Включение / выключение кнопки обработки серии измерений
-        /// </summary>
-        private void Process()
-        {
-            if ((input && mainError) || (input && accuracy))
-                processButton.Enabled = true;
-            else
-                processButton.Enabled = false;
-        }
-
-        /// <summary>
-        /// Ввод класса точности
-        /// </summary>
-        private void accuracyClassTextBox_TextChanged(object sender, EventArgs e)
-        {
-            double idk;
-
-            if (double.TryParse(accuracyClassTextBox.Text, out idk))
-                accuracy = true;
-            else
-            {
-                accuracy = false;
-
-                if (accuracyClassTextBox.Text.Length >= 1)
-                accuracyClassTextBox.Text = 
-                    accuracyClassTextBox.Text.Remove(accuracyClassTextBox.Text.Length - 1, 1);
-
-                accuracyClassTextBox.SelectionStart = accuracyClassTextBox.Text.Length;
-            }
             Process();
         }
 
@@ -128,18 +102,84 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void mainErrorRateTextBox_TextChanged(object sender, EventArgs e)
         {
-            double idk;
+            double check;
 
             if (mainErrorRateTextBox.Text == "")
                 mainError = false;
-            else if (double.TryParse(mainErrorRateTextBox.Text, out idk))
+            else if (double.TryParse(mainErrorRateTextBox.Text, out check))
                 mainError = true;
             else
-                mainError = false;
+            {
+                mainErrorRateTextBox.Text =
+                        mainErrorRateTextBox.Text.Remove(mainErrorRateTextBox.Text.Length - 1, 1);
+
+                mainErrorRateTextBox.SelectionStart = mainErrorRateTextBox.Text.Length;
+            }
+            Process();
+        }
+
+        /// <summary>
+        /// Ввод дополнительной погрешности
+        /// </summary>
+        private void additionalErrorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double check;
+
+            if (!(double.TryParse(additionalErrorTextBox.Text, out check)))
+            {
+                if (additionalErrorTextBox.Text.Length >= 1)
+                    additionalErrorTextBox.Text =
+                        additionalErrorTextBox.Text.Remove(additionalErrorTextBox.Text.Length - 1, 1);
+
+                additionalErrorTextBox.SelectionStart = additionalErrorTextBox.Text.Length;
+            }
+        }
+
+        /// <summary>
+        /// Ввод серии измерений
+        /// </summary>
+        private void MeasurementTextBox_TextChanged(object sender, EventArgs e)
+        {
+            char lastChar = 'h';
+
+            // Проверка длины строки
+            if (MeasurementTextBox.Text.Length > 0)
+                lastChar = MeasurementTextBox.Text[MeasurementTextBox.Text.Length - 1];
+
+            // Проверка нвличия лишних символов в строке
+            if ((lastChar < '0' && lastChar != ',' && lastChar != ' ') ||
+                (lastChar > '9' && lastChar != ',' && lastChar != ' ') ||
+                MeasurementTextBox.Text.Contains("  "))
+            {
+                if (MeasurementTextBox.Text.Length >= 1)
+                    MeasurementTextBox.Text =
+                        MeasurementTextBox.Text.Remove(MeasurementTextBox.Text.Length - 1, 1);
+
+                MeasurementTextBox.SelectionStart = MeasurementTextBox.Text.Length;
+            }
+
+            // Добавление введённых значений в серию измерений
+            values.Add(MeasurementTextBox.Text);
+
+            // Вкл/выкл кнопки обработки измерений
+            if (values.Count >= 3)
+                input = true;
+            else
+                input = false;
 
             Process();
         }
 
+        /// <summary>
+        /// Включение / выключение кнопки обработки серии измерений
+        /// </summary>
+        private void Process()
+        {
+            if (input && (mainError || !mainErrorRateTextBox.Visible))
+                processButton.Enabled = true;
+            else
+                processButton.Enabled = false;
+        }
         /// <summary>
         /// Обработка серии измерений
         /// </summary>
@@ -148,23 +188,6 @@ namespace ValuesEstimatingUI
             resultLabel.Visible = true;
             errorLimitLabel.Visible = true;
             missesLabel.Visible = true;
-        }
-
-        /// <summary>
-        /// Ввод доверительной вероятности
-        /// </summary>
-        private void probabilityTextBox_TextChanged(object sender, EventArgs e)
-        {
-            double check;
-
-            if (!(double.TryParse(probabilityTextBox.Text, out check)))
-            {
-                if (probabilityTextBox.Text.Length >= 1)
-                    probabilityTextBox.Text =
-                        probabilityTextBox.Text.Remove(probabilityTextBox.Text.Length - 1, 1);
-
-                probabilityTextBox.SelectionStart = probabilityTextBox.Text.Length;
-            }
         }
     }
 }

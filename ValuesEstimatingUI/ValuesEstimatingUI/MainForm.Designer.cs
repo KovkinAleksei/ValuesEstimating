@@ -36,19 +36,18 @@
             this.mainErrorRateTextBox = new System.Windows.Forms.TextBox();
             this.mainErrorRateLabel = new System.Windows.Forms.Label();
             this.probabilityLabel = new System.Windows.Forms.Label();
-            this.probabilityTextBox = new System.Windows.Forms.TextBox();
             this.additionalErrorLabel = new System.Windows.Forms.Label();
             this.additionalErrorTextBox = new System.Windows.Forms.TextBox();
             this.accuracyClassLabel = new System.Windows.Forms.Label();
-            this.accuracyClassTextBox = new System.Windows.Forms.TextBox();
             this.errorCharacterLabel = new System.Windows.Forms.Label();
             this.errorCharacterComboBox = new System.Windows.Forms.ComboBox();
             this.processButton = new System.Windows.Forms.Button();
             this.measurementLabel = new System.Windows.Forms.Label();
-            this.inputButton = new System.Windows.Forms.Button();
             this.missesLabel = new System.Windows.Forms.Label();
             this.errorLimitLabel = new System.Windows.Forms.Label();
             this.resultLabel = new System.Windows.Forms.Label();
+            this.accuracyClassComboBox = new System.Windows.Forms.ComboBox();
+            this.probabilityComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,8 +60,9 @@
             this.MeasurementTextBox.Location = new System.Drawing.Point(12, 75);
             this.MeasurementTextBox.Multiline = true;
             this.MeasurementTextBox.Name = "MeasurementTextBox";
-            this.MeasurementTextBox.Size = new System.Drawing.Size(372, 436);
+            this.MeasurementTextBox.Size = new System.Drawing.Size(372, 474);
             this.MeasurementTextBox.TabIndex = 0;
+            this.MeasurementTextBox.TextChanged += new System.EventHandler(this.MeasurementTextBox_TextChanged);
             // 
             // menuStrip1
             // 
@@ -129,16 +129,6 @@
             this.probabilityLabel.TabIndex = 4;
             this.probabilityLabel.Text = "Доверительная вероятность";
             // 
-            // probabilityTextBox
-            // 
-            this.probabilityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.probabilityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.probabilityTextBox.Location = new System.Drawing.Point(689, 75);
-            this.probabilityTextBox.Name = "probabilityTextBox";
-            this.probabilityTextBox.Size = new System.Drawing.Size(283, 22);
-            this.probabilityTextBox.TabIndex = 5;
-            this.probabilityTextBox.TextChanged += new System.EventHandler(this.probabilityTextBox_TextChanged);
-            // 
             // additionalErrorLabel
             // 
             this.additionalErrorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,6 +148,7 @@
             this.additionalErrorTextBox.Name = "additionalErrorTextBox";
             this.additionalErrorTextBox.Size = new System.Drawing.Size(283, 22);
             this.additionalErrorTextBox.TabIndex = 7;
+            this.additionalErrorTextBox.TextChanged += new System.EventHandler(this.additionalErrorTextBox_TextChanged);
             // 
             // accuracyClassLabel
             // 
@@ -169,16 +160,6 @@
             this.accuracyClassLabel.Size = new System.Drawing.Size(110, 16);
             this.accuracyClassLabel.TabIndex = 8;
             this.accuracyClassLabel.Text = "Класс точности";
-            // 
-            // accuracyClassTextBox
-            // 
-            this.accuracyClassTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.accuracyClassTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.accuracyClassTextBox.Location = new System.Drawing.Point(689, 131);
-            this.accuracyClassTextBox.Name = "accuracyClassTextBox";
-            this.accuracyClassTextBox.Size = new System.Drawing.Size(283, 22);
-            this.accuracyClassTextBox.TabIndex = 9;
-            this.accuracyClassTextBox.TextChanged += new System.EventHandler(this.accuracyClassTextBox_TextChanged);
             // 
             // errorCharacterLabel
             // 
@@ -223,24 +204,12 @@
             this.measurementLabel.TabIndex = 13;
             this.measurementLabel.Text = "Серия измерений ";
             // 
-            // inputButton
-            // 
-            this.inputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.inputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.inputButton.Location = new System.Drawing.Point(12, 517);
-            this.inputButton.Name = "inputButton";
-            this.inputButton.Size = new System.Drawing.Size(87, 32);
-            this.inputButton.TabIndex = 14;
-            this.inputButton.Text = "Ввод";
-            this.inputButton.UseVisualStyleBackColor = true;
-            this.inputButton.Click += new System.EventHandler(this.inputButton_Click);
-            // 
             // missesLabel
             // 
             this.missesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.missesLabel.AutoSize = true;
             this.missesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.missesLabel.Location = new System.Drawing.Point(390, 415);
+            this.missesLabel.Location = new System.Drawing.Point(390, 447);
             this.missesLabel.Name = "missesLabel";
             this.missesLabel.Size = new System.Drawing.Size(68, 16);
             this.missesLabel.TabIndex = 15;
@@ -251,7 +220,7 @@
             this.errorLimitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.errorLimitLabel.AutoSize = true;
             this.errorLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.errorLimitLabel.Location = new System.Drawing.Point(390, 455);
+            this.errorLimitLabel.Location = new System.Drawing.Point(390, 489);
             this.errorLimitLabel.Name = "errorLimitLabel";
             this.errorLimitLabel.Size = new System.Drawing.Size(261, 16);
             this.errorLimitLabel.TabIndex = 16;
@@ -262,30 +231,49 @@
             this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resultLabel.AutoSize = true;
             this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resultLabel.Location = new System.Drawing.Point(390, 495);
+            this.resultLabel.Location = new System.Drawing.Point(390, 533);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(156, 16);
             this.resultLabel.TabIndex = 17;
             this.resultLabel.Text = "Результат измерения:";
+            // 
+            // accuracyClassComboBox
+            // 
+            this.accuracyClassComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.accuracyClassComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.accuracyClassComboBox.FormattingEnabled = true;
+            this.accuracyClassComboBox.Location = new System.Drawing.Point(689, 129);
+            this.accuracyClassComboBox.Name = "accuracyClassComboBox";
+            this.accuracyClassComboBox.Size = new System.Drawing.Size(283, 24);
+            this.accuracyClassComboBox.TabIndex = 18;
+            // 
+            // probabilityComboBox
+            // 
+            this.probabilityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.probabilityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.probabilityComboBox.FormattingEnabled = true;
+            this.probabilityComboBox.Location = new System.Drawing.Point(689, 73);
+            this.probabilityComboBox.Name = "probabilityComboBox";
+            this.probabilityComboBox.Size = new System.Drawing.Size(283, 24);
+            this.probabilityComboBox.TabIndex = 19;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.probabilityComboBox);
+            this.Controls.Add(this.accuracyClassComboBox);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.errorLimitLabel);
             this.Controls.Add(this.missesLabel);
-            this.Controls.Add(this.inputButton);
             this.Controls.Add(this.measurementLabel);
             this.Controls.Add(this.processButton);
             this.Controls.Add(this.errorCharacterComboBox);
             this.Controls.Add(this.errorCharacterLabel);
-            this.Controls.Add(this.accuracyClassTextBox);
             this.Controls.Add(this.accuracyClassLabel);
             this.Controls.Add(this.additionalErrorTextBox);
             this.Controls.Add(this.additionalErrorLabel);
-            this.Controls.Add(this.probabilityTextBox);
             this.Controls.Add(this.probabilityLabel);
             this.Controls.Add(this.mainErrorRateLabel);
             this.Controls.Add(this.mainErrorRateTextBox);
@@ -313,19 +301,18 @@
         private System.Windows.Forms.TextBox mainErrorRateTextBox;
         private System.Windows.Forms.Label mainErrorRateLabel;
         private System.Windows.Forms.Label probabilityLabel;
-        private System.Windows.Forms.TextBox probabilityTextBox;
         private System.Windows.Forms.Label additionalErrorLabel;
         private System.Windows.Forms.TextBox additionalErrorTextBox;
         private System.Windows.Forms.Label accuracyClassLabel;
-        private System.Windows.Forms.TextBox accuracyClassTextBox;
         private System.Windows.Forms.Label errorCharacterLabel;
         private System.Windows.Forms.ComboBox errorCharacterComboBox;
         private System.Windows.Forms.Button processButton;
         private System.Windows.Forms.Label measurementLabel;
-        private System.Windows.Forms.Button inputButton;
         private System.Windows.Forms.Label missesLabel;
         private System.Windows.Forms.Label errorLimitLabel;
         private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.ComboBox accuracyClassComboBox;
+        private System.Windows.Forms.ComboBox probabilityComboBox;
     }
 }
 
