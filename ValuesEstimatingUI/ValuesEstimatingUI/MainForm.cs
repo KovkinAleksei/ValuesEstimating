@@ -17,10 +17,6 @@ namespace ValuesEstimatingUI
         // Серия измерений
         Values values = new Values();
 
-        // Введённые значения
-        bool input = false;
-        bool mainError = false;
-
         public MainForm()
         {
             InitializeComponent();
@@ -28,111 +24,14 @@ namespace ValuesEstimatingUI
             // Отключение кнопки обработки серии измереий
             processButton.Enabled = false;
 
-            // Скрытие элементов
-            accuracyClassLabel.Visible = false;
-            accuracyClassComboBox.Visible = false;
-            errorCharacterComboBox.Visible = false;
-            errorCharacterLabel.Visible = false;
-            resultLabel.Visible = false;
-            errorLimitLabel.Visible = false;
-            missesLabel.Visible = false;
-
-            // Добавление в список характеров основной погрешности
-            errorCharacterComboBox.Items.Add("Аддитивная");
-            errorCharacterComboBox.Items.Add("Мультипликативная");
-            errorCharacterComboBox.Items.Add("Аддитивная и мультипликативная");
-
             // Добавление в список доверительных вероятностей
+            probabilityComboBox.Items.Add("0,9");
             probabilityComboBox.Items.Add("0,95");
             probabilityComboBox.Items.Add("0,99");
             probabilityComboBox.Items.Add("0,999");
 
-            // Добавление в список классов точности
-            accuracyClassComboBox.Items.Add("0,05");
-            accuracyClassComboBox.Items.Add("0,1");
-            accuracyClassComboBox.Items.Add("0,2");
-            accuracyClassComboBox.Items.Add("0,5");
-            accuracyClassComboBox.Items.Add("1,0");
-            accuracyClassComboBox.Items.Add("1,5");
-            accuracyClassComboBox.Items.Add("2,5");
-            accuracyClassComboBox.Items.Add("4,0");
-
-            // Выбор аддитивной погрешности
-            errorCharacterComboBox.SelectedIndex = 0;
-
-            // Выбор доверительной погрешности 0,95
+            // Выбор доверительной погрешности 0,9
             probabilityComboBox.SelectedIndex = 0;
-
-            // Выбор класса точности 0,05
-            accuracyClassComboBox.SelectedIndex = 0;
-        }
-
-        /// <summary>
-        /// Выбор обработки серии измерений по основной инструментальной погрешности
-        /// </summary>
-        private void основнаяИнструментальнаяПогрешностьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mainErrorRateLabel.Visible = true;
-            mainErrorRateTextBox.Visible = true;
-            accuracyClassLabel.Visible = false;
-            accuracyClassComboBox.Visible = false;
-            errorCharacterComboBox.Visible = false;
-            errorCharacterLabel.Visible = false;
-
-            Process();
-        }
-
-        /// <summary>
-        /// Выбор обработки серии измерений по классу точности и характеру основной погрешности
-        /// </summary>
-        private void accuracyClass_Click(object sender, EventArgs e)
-        {
-            mainErrorRateLabel.Visible = false;
-            mainErrorRateTextBox.Visible = false;
-            accuracyClassLabel.Visible = true;
-            accuracyClassComboBox.Visible = true;
-            errorCharacterComboBox.Visible = true;
-            errorCharacterLabel.Visible = true;
-
-            Process();
-        }
-
-        /// <summary>
-        /// Ввод основной инструментальной погрешности
-        /// </summary>
-        private void mainErrorRateTextBox_TextChanged(object sender, EventArgs e)
-        {
-            double check;
-
-            if (mainErrorRateTextBox.Text == "")
-                mainError = false;
-            else if (double.TryParse(mainErrorRateTextBox.Text, out check))
-                mainError = true;
-            else
-            {
-                mainErrorRateTextBox.Text =
-                        mainErrorRateTextBox.Text.Remove(mainErrorRateTextBox.Text.Length - 1, 1);
-
-                mainErrorRateTextBox.SelectionStart = mainErrorRateTextBox.Text.Length;
-            }
-            Process();
-        }
-
-        /// <summary>
-        /// Ввод дополнительной погрешности
-        /// </summary>
-        private void additionalErrorTextBox_TextChanged(object sender, EventArgs e)
-        {
-            double check;
-
-            if (!(double.TryParse(additionalErrorTextBox.Text, out check)))
-            {
-                if (additionalErrorTextBox.Text.Length >= 1)
-                    additionalErrorTextBox.Text =
-                        additionalErrorTextBox.Text.Remove(additionalErrorTextBox.Text.Length - 1, 1);
-
-                additionalErrorTextBox.SelectionStart = additionalErrorTextBox.Text.Length;
-            }
         }
 
         /// <summary>
@@ -163,31 +62,41 @@ namespace ValuesEstimatingUI
 
             // Вкл/выкл кнопки обработки измерений
             if (values.Count >= 3)
-                input = true;
-            else
-                input = false;
-
-            Process();
-        }
-
-        /// <summary>
-        /// Включение / выключение кнопки обработки серии измерений
-        /// </summary>
-        private void Process()
-        {
-            if (input && (mainError || !mainErrorRateTextBox.Visible))
                 processButton.Enabled = true;
             else
                 processButton.Enabled = false;
         }
+
+        /// <summary>
+        /// Ввод дополнительной погрешности
+        /// </summary>
+        private void additionalErrorButton_Click(object sender, EventArgs e)
+        {
+            AdditionalErrorForm additionalErrorForm = new AdditionalErrorForm();
+            additionalErrorForm.ShowDialog();
+
+            if (additionalErrorForm.DialogResult == DialogResult.OK)
+                values.AdditionalError = additionalErrorForm.AdditionalError;
+        }
+
+        /// <summary>
+        /// Ввод основной погрешности
+        /// </summary>
+        private void mainErrorButton_Click(object sender, EventArgs e)
+        {
+            MainErrorForm mainErrorForm = new MainErrorForm();
+            mainErrorForm.ShowDialog();
+
+            if (mainErrorForm.DialogResult == DialogResult.OK)
+                values.MainError = mainErrorForm.MainError;
+        }
+
         /// <summary>
         /// Обработка серии измерений
         /// </summary>
         private void processButton_Click(object sender, EventArgs e)
         {
-            resultLabel.Visible = true;
-            errorLimitLabel.Visible = true;
-            missesLabel.Visible = true;
+            
         }
     }
 }

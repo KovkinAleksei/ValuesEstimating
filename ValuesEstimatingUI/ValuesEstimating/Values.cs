@@ -6,6 +6,8 @@ namespace ValuesEstimating
     public class Values
     {
         private List<double> _values;
+        private double _additionalError = 0;
+        private double _mainError = 0;
 
         /// <summary>
         /// Конструктор
@@ -52,6 +54,28 @@ namespace ValuesEstimating
             get
             {
                 return _values.Count;
+            }
+        }
+
+        /// <summary>
+        /// Задаёт дополнительную погрешность измерения
+        /// </summary>
+        public double AdditionalError
+        {
+            set
+            {
+                _additionalError = value;
+            }
+        }
+
+        /// <summary>
+        /// Задаёт основную погрешность
+        /// </summary>
+        public double MainError
+        {
+            set
+            {
+                _mainError = value;
             }
         }
     }
