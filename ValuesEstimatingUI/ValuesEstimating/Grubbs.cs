@@ -13,7 +13,7 @@ namespace ValuesEstimating
         /// </summary>
         public Grubbs()
         {
-            _coefficient = new double[4, 30];
+            _coefficient = new double[4, 31];
 
             // Заполнение массива
             _coefficient[0, 3] = 1.414;
@@ -131,6 +131,14 @@ namespace ValuesEstimating
             _coefficient[3, 28] = 2.764;
             _coefficient[3, 29] = 2.778;
             _coefficient[3, 30] = 2.792;
+        }
+
+        /// <summary>
+        /// Возвращает допустимое отклонение
+        /// </summary>
+        public double GetDeviation(int probability, int count)
+        {
+            return _coefficient[probability, count];
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ValuesEstimatingUI
     public partial class AdditionalErrorForm : Form
     {
         private double _additionalError = 0;
+        private double _previousAdditionalError = 0;
 
         /// <summary>
         /// Возвращает дополнительную погрешность
@@ -35,11 +36,13 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void additionalErrorTextBox_TextChanged(object sender, EventArgs e)
         {
+            // Проверка наличия лишних символов
             if (!double.TryParse(additionalErrorTextBox.Text, out _additionalError) ||
                 additionalErrorTextBox.Text[additionalErrorTextBox.Text.Length - 1] == ' ')
             {
-                additionalErrorTextBox.Text =
-                    additionalErrorTextBox.Text.Remove(additionalErrorTextBox.Text.Length - 1, 1);
+                if (additionalErrorTextBox.Text.Length > 0)
+                    additionalErrorTextBox.Text =
+                        additionalErrorTextBox.Text.Remove(additionalErrorTextBox.Text.Length - 1, 1);
 
                 additionalErrorTextBox.SelectionStart = additionalErrorTextBox.Text.Length;
             }
@@ -50,6 +53,8 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void OKbutton_Click(object sender, EventArgs e)
         {
+            _previousAdditionalError = _additionalError;
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -59,8 +64,28 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            if (_previousAdditionalError != 0)
+                additionalErrorTextBox.Text = _previousAdditionalError.ToString();
+            else
+                additionalErrorTextBox.Text = "";
+
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        /// <summary>
+        /// Нажатие горячих клавиш
+        /// </summary>
+        private void ShortCut(object sender, KeyEventArgs e)
+        {
+            // Сохранение введённого значения дополнительной погрешности при нажатии Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                _previousAdditionalError = _additionalError;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

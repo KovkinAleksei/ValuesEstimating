@@ -13,7 +13,7 @@ namespace ValuesEstimating
         /// </summary>
         public Student()
         {
-            _coefficients = new double[4, 122];
+            _coefficients = new double[4, 31];
 
             // Заполнение массива
             _coefficients[0, 3] = 31.598;
@@ -131,6 +131,14 @@ namespace ValuesEstimating
             _coefficients[3, 28] = 1.703;
             _coefficients[3, 29] = 1.701;
             _coefficients[3, 30] = 1.699;
+        }
+
+        /// <summary>
+        /// Возвращает квантиль Стьюдента
+        /// </summary>
+        public double GetQuantile(int probability, int count)
+        {
+            return _coefficients[probability, count];
         }
     }
 }
