@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ValuesEstimatingUI
 {
-    public partial class AdditionalErrorForm : Form
+    public partial class AdditionalErrorForm : MaterialForm
     {
         private double _additionalError = 0;
         private double _previousAdditionalError = 0;
@@ -29,6 +31,13 @@ namespace ValuesEstimatingUI
         public AdditionalErrorForm()
         {
             InitializeComponent();
+
+            // Темная тема окна
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.LightGreen900,
+                Primary.Green500, Accent.Green400, TextShade.WHITE);
         }
 
         /// <summary>

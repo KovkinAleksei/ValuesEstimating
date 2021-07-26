@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ValuesEstimatingUI
 {
-    public partial class MainErrorForm : Form
+    public partial class MainErrorForm : MaterialForm
     {
         // Текущие значения
         private double _mainError = 0;
@@ -133,6 +135,13 @@ namespace ValuesEstimatingUI
         public MainErrorForm()
         {
             InitializeComponent();
+
+            // Темная тема окна
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.LightGreen900,
+                Primary.Green500, Accent.Green400, TextShade.WHITE);
 
             // Скрытие элементов ввода нормирующей величины и приведённой погрешности до момента выбора 
             // характера основной погрешности
@@ -278,7 +287,7 @@ namespace ValuesEstimatingUI
             // При выборе аддитивной погрешности
             if (errorCharacterComboBox.SelectedIndex == 1)
             {
-                this.Height = 301;
+                this.Height = 475;
 
                 // Скрываются элементы ввода приведённой погрешности 
                 reducedErrorBeginningTextBox.Visible = false;
@@ -296,7 +305,7 @@ namespace ValuesEstimatingUI
             // При выборе мультипликативной погрешности или "Не выбрано"
             else if (errorCharacterComboBox.SelectedIndex == 0 || errorCharacterComboBox.SelectedIndex == 2)
             {
-                this.Height = 268;
+                this.Height = 415;
 
                 // Скрываются элементы ввода нормирующей величины
                 normalizingValueLabel.Visible = false;
@@ -314,7 +323,7 @@ namespace ValuesEstimatingUI
             // При выборе аддитивной и мультипликативной погрешности
             else if (errorCharacterComboBox.SelectedIndex == 3)
             {
-                this.Height = 370;
+                this.Height = 552;
 
                 // Появляются элементы ввода нормирующей величины
                 normalizingValueLabel.Visible = true;
@@ -349,51 +358,51 @@ namespace ValuesEstimatingUI
             // Проверка выбранных и введённых значений
             if (accuracyClassComboBox.SelectedIndex == 0 && errorCharacterComboBox.SelectedIndex == 2)
             {
-                MessageBox.Show("Выберете класс точности", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Выберете класс точности", "", MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 0 && accuracyClassComboBox.SelectedIndex != 0)
             {
-                MessageBox.Show("Выберете характер основной погрешности", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Выберете характер основной погрешности", "", MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 1 &&
                 accuracyClassComboBox.SelectedIndex == 0 && normalizingValueTextBox.Text != "")
             {
-                MessageBox.Show("Выберете класс точности", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Выберете класс точности", "", MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 1 &&
                 accuracyClassComboBox.SelectedIndex != 0 && normalizingValueTextBox.Text == "")
             {
-                MessageBox.Show("Введите нормирующую величину", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Введите нормирующую величину", "", MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 1 &&
                 accuracyClassComboBox.SelectedIndex == 0 && normalizingValueTextBox.Text == "")
             {
-                MessageBox.Show("Выберете класс точности и введите нормирующюу величину", "",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Выберете класс точности и введите нормирующюу величину", "",
+                    MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 3 && normalizingValueTextBox.Text == "" &&
                 (reducedErrorBeginningTextBox.Text == "" || reducedErrorEndTextBox.Text == ""))
             {
-                MessageBox.Show("Введите нормирующую величину и " +
-                    "приведённую погрешность в начале и в конце шкалы", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Введите нормирующую величину и " +
+                    "приведённую погрешность в начале и в конце шкалы", "", MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 3 && normalizingValueTextBox.Text == "" &&
                 reducedErrorBeginningTextBox.Text != "" && reducedErrorEndTextBox.Text != "")
             {
-                MessageBox.Show("Введите нормирующую величину", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Введите нормирующую величину", "", MessageBoxButtons.OK);
                 return;
             }
             if (errorCharacterComboBox.SelectedIndex == 3 && normalizingValueTextBox.Text != "" &&
                  (reducedErrorBeginningTextBox.Text == "" || reducedErrorEndTextBox.Text == ""))
             {
-                MessageBox.Show("Введите приведённую погрешность в начале и в конце шкалы", "",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialMessageBox.Show("Введите приведённую погрешность в начале и в конце шкалы", "",
+                    MessageBoxButtons.OK);
                 return;
             }
 

@@ -28,118 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.missesLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.resultInfoLabel = new System.Windows.Forms.Label();
-            this.missesInfoLabel = new System.Windows.Forms.Label();
-            this.resultErrorInfoLabel = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.OKbutton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultForm));
+            this.resultLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.resultInfoLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.missesLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.missesInfoLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.saveButton = new MaterialSkin.Controls.MaterialButton();
+            this.OKbutton = new MaterialSkin.Controls.MaterialButton();
+            this.hintLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.hintLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.hintLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resultLabel.Location = new System.Drawing.Point(12, 9);
+            this.resultLabel.Depth = 0;
+            this.resultLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.resultLabel.Location = new System.Drawing.Point(12, 82);
+            this.resultLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(157, 16);
-            this.resultLabel.TabIndex = 0;
+            this.resultLabel.Size = new System.Drawing.Size(167, 19);
+            this.resultLabel.TabIndex = 8;
             this.resultLabel.Text = "Результат измерений:";
-            // 
-            // missesLabel
-            // 
-            this.missesLabel.AutoSize = true;
-            this.missesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.missesLabel.Location = new System.Drawing.Point(12, 56);
-            this.missesLabel.Name = "missesLabel";
-            this.missesLabel.Size = new System.Drawing.Size(68, 16);
-            this.missesLabel.TabIndex = 1;
-            this.missesLabel.Text = "Промахи:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 104);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Общая доверительная граница погрешности:";
             // 
             // resultInfoLabel
             // 
             this.resultInfoLabel.AutoSize = true;
-            this.resultInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resultInfoLabel.Location = new System.Drawing.Point(165, 9);
+            this.resultInfoLabel.Depth = 0;
+            this.resultInfoLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.resultInfoLabel.Location = new System.Drawing.Point(180, 82);
+            this.resultInfoLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.resultInfoLabel.Name = "resultInfoLabel";
-            this.resultInfoLabel.Size = new System.Drawing.Size(45, 16);
-            this.resultInfoLabel.TabIndex = 3;
-            this.resultInfoLabel.Text = "label2";
+            this.resultInfoLabel.Size = new System.Drawing.Size(19, 19);
+            this.resultInfoLabel.TabIndex = 9;
+            this.resultInfoLabel.Text = "00";
+            // 
+            // missesLabel
+            // 
+            this.missesLabel.AutoSize = true;
+            this.missesLabel.Depth = 0;
+            this.missesLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.missesLabel.Location = new System.Drawing.Point(12, 138);
+            this.missesLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.missesLabel.Name = "missesLabel";
+            this.missesLabel.Size = new System.Drawing.Size(72, 19);
+            this.missesLabel.TabIndex = 10;
+            this.missesLabel.Text = "Промахи:";
             // 
             // missesInfoLabel
             // 
             this.missesInfoLabel.AutoSize = true;
-            this.missesInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.missesInfoLabel.Location = new System.Drawing.Point(76, 56);
+            this.missesInfoLabel.Depth = 0;
+            this.missesInfoLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.missesInfoLabel.Location = new System.Drawing.Point(86, 138);
+            this.missesInfoLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.missesInfoLabel.Name = "missesInfoLabel";
-            this.missesInfoLabel.Size = new System.Drawing.Size(45, 16);
-            this.missesInfoLabel.TabIndex = 4;
-            this.missesInfoLabel.Text = "label2";
-            // 
-            // resultErrorInfoLabel
-            // 
-            this.resultErrorInfoLabel.AutoSize = true;
-            this.resultErrorInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resultErrorInfoLabel.Location = new System.Drawing.Point(308, 104);
-            this.resultErrorInfoLabel.Name = "resultErrorInfoLabel";
-            this.resultErrorInfoLabel.Size = new System.Drawing.Size(45, 16);
-            this.resultErrorInfoLabel.TabIndex = 5;
-            this.resultErrorInfoLabel.Text = "label2";
+            this.missesInfoLabel.Size = new System.Drawing.Size(19, 19);
+            this.missesInfoLabel.TabIndex = 11;
+            this.missesInfoLabel.Text = "00";
             // 
             // saveButton
             // 
             this.saveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveButton.Location = new System.Drawing.Point(14, 146);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(5);
+            this.saveButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.saveButton.Depth = 0;
+            this.saveButton.DrawShadows = true;
+            this.saveButton.HighEmphasis = true;
+            this.saveButton.Icon = null;
+            this.saveButton.Location = new System.Drawing.Point(288, 301);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(6);
+            this.saveButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(154, 27);
-            this.saveButton.TabIndex = 6;
+            this.saveButton.Size = new System.Drawing.Size(176, 36);
+            this.saveButton.TabIndex = 14;
             this.saveButton.Text = "Сохранить в файле";
+            this.saveButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.saveButton.UseAccentColor = false;
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // OKbutton
             // 
             this.OKbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.OKbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OKbutton.Location = new System.Drawing.Point(178, 146);
-            this.OKbutton.Margin = new System.Windows.Forms.Padding(5);
+            this.OKbutton.AutoSize = false;
+            this.OKbutton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OKbutton.Depth = 0;
+            this.OKbutton.DrawShadows = true;
+            this.OKbutton.HighEmphasis = true;
+            this.OKbutton.Icon = null;
+            this.OKbutton.Location = new System.Drawing.Point(476, 301);
+            this.OKbutton.Margin = new System.Windows.Forms.Padding(6);
+            this.OKbutton.MouseState = MaterialSkin.MouseState.HOVER;
             this.OKbutton.Name = "OKbutton";
-            this.OKbutton.Size = new System.Drawing.Size(100, 27);
-            this.OKbutton.TabIndex = 7;
-            this.OKbutton.Text = "OK";
+            this.OKbutton.Size = new System.Drawing.Size(100, 36);
+            this.OKbutton.TabIndex = 15;
+            this.OKbutton.Text = "ОК";
+            this.OKbutton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.OKbutton.UseAccentColor = false;
             this.OKbutton.UseVisualStyleBackColor = true;
             this.OKbutton.Click += new System.EventHandler(this.OKbutton_Click);
+            // 
+            // hintLabel
+            // 
+            this.hintLabel.AutoSize = true;
+            this.hintLabel.Depth = 0;
+            this.hintLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.hintLabel.Location = new System.Drawing.Point(12, 196);
+            this.hintLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.hintLabel.Name = "hintLabel";
+            this.hintLabel.Size = new System.Drawing.Size(570, 19);
+            this.hintLabel.TabIndex = 16;
+            this.hintLabel.Text = "X - результат измерений с указанием доверительной границы погрешности";
+            // 
+            // hintLabel2
+            // 
+            this.hintLabel2.AutoSize = true;
+            this.hintLabel2.Depth = 0;
+            this.hintLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.hintLabel2.Location = new System.Drawing.Point(12, 229);
+            this.hintLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.hintLabel2.Name = "hintLabel2";
+            this.hintLabel2.Size = new System.Drawing.Size(237, 19);
+            this.hintLabel2.TabIndex = 17;
+            this.hintLabel2.Text = "P - доверительная вероятность";
+            // 
+            // hintLabel3
+            // 
+            this.hintLabel3.AutoSize = true;
+            this.hintLabel3.Depth = 0;
+            this.hintLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.hintLabel3.Location = new System.Drawing.Point(12, 261);
+            this.hintLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.hintLabel3.Name = "hintLabel3";
+            this.hintLabel3.Size = new System.Drawing.Size(361, 19);
+            this.hintLabel3.TabIndex = 18;
+            this.hintLabel3.Text = "n - количество измерений в серии без промахов";
             // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 181);
+            this.ClientSize = new System.Drawing.Size(591, 352);
+            this.Controls.Add(this.hintLabel3);
+            this.Controls.Add(this.hintLabel2);
+            this.Controls.Add(this.hintLabel);
             this.Controls.Add(this.OKbutton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.resultErrorInfoLabel);
             this.Controls.Add(this.missesInfoLabel);
-            this.Controls.Add(this.resultInfoLabel);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.missesLabel);
+            this.Controls.Add(this.resultInfoLabel);
             this.Controls.Add(this.resultLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -150,14 +191,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label resultLabel;
-        private System.Windows.Forms.Label missesLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label resultInfoLabel;
-        private System.Windows.Forms.Label missesInfoLabel;
-        private System.Windows.Forms.Label resultErrorInfoLabel;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button OKbutton;
+        private MaterialSkin.Controls.MaterialLabel resultLabel;
+        private MaterialSkin.Controls.MaterialLabel resultInfoLabel;
+        private MaterialSkin.Controls.MaterialLabel missesLabel;
+        private MaterialSkin.Controls.MaterialLabel missesInfoLabel;
+        private MaterialSkin.Controls.MaterialButton saveButton;
+        private MaterialSkin.Controls.MaterialButton OKbutton;
+        private MaterialSkin.Controls.MaterialLabel hintLabel;
+        private MaterialSkin.Controls.MaterialLabel hintLabel2;
+        private MaterialSkin.Controls.MaterialLabel hintLabel3;
     }
 }

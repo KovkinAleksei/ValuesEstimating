@@ -302,7 +302,10 @@ namespace ValuesEstimating
                 systematicError = _mainError * _probabilityCoefficient;
             }
             else
+            {
+                _resultError = randomError;
                 return;
+            }
 
             // Среднеквадратическая погрешность суммарной НСП
             double systematicRMS = systematicError / (Math.Sqrt(3) * _probabilityCoefficient);

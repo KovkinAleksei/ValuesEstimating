@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ValuesEstimatingUI
 {
-    public partial class HelpForm : Form
+    public partial class HelpForm : MaterialForm
     {
         public HelpForm()
         {
             InitializeComponent();
+
+            // Темная тема окна
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.LightGreen900,
+                Primary.Green500, Accent.Green400, TextShade.WHITE);
 
             //helpTextBoxhh.Font = new Font(helpTextBoxhh.Font, FontStyle.Bold);
             helpTextBox.Text = "Ввод результатов измерений" +
@@ -39,7 +48,7 @@ namespace ValuesEstimatingUI
                 "Вывод результата измерений" +
                 Environment.NewLine +
                 "Для вывода результата измерений без учёта дополнительной и основной погрешности нажмите кнопку Ввод " +
-                "в левом нижнем углу главного окна программы." +
+                "в правом нижнем углу главного окна программы." +
                 Environment.NewLine + Environment.NewLine +
 
                 "Дополнительная погрешность" +

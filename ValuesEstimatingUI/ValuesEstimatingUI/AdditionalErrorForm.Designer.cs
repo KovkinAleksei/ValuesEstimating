@@ -28,57 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.additionalErrorLabel = new System.Windows.Forms.Label();
-            this.additionalErrorTextBox = new System.Windows.Forms.TextBox();
-            this.OKbutton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdditionalErrorForm));
+            this.additionalErrorLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.additionalErrorTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.OKbutton = new MaterialSkin.Controls.MaterialButton();
+            this.cancelButton = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // additionalErrorLabel
             // 
             this.additionalErrorLabel.AutoSize = true;
-            this.additionalErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.additionalErrorLabel.Location = new System.Drawing.Point(9, 9);
-            this.additionalErrorLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.additionalErrorLabel.Depth = 0;
+            this.additionalErrorLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.additionalErrorLabel.Location = new System.Drawing.Point(9, 76);
+            this.additionalErrorLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.additionalErrorLabel.Name = "additionalErrorLabel";
-            this.additionalErrorLabel.Size = new System.Drawing.Size(335, 16);
-            this.additionalErrorLabel.TabIndex = 0;
+            this.additionalErrorLabel.Size = new System.Drawing.Size(371, 19);
+            this.additionalErrorLabel.TabIndex = 4;
             this.additionalErrorLabel.Text = "Введите значение дополнительной погрешности:";
-            this.additionalErrorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // additionalErrorTextBox
             // 
-            this.additionalErrorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.additionalErrorTextBox.Location = new System.Drawing.Point(12, 35);
-            this.additionalErrorTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.additionalErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.additionalErrorTextBox.Depth = 0;
+            this.additionalErrorTextBox.Font = new System.Drawing.Font("Roboto", 12F);
+            this.additionalErrorTextBox.Location = new System.Drawing.Point(12, 98);
+            this.additionalErrorTextBox.MaxLength = 50;
+            this.additionalErrorTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.additionalErrorTextBox.Multiline = false;
             this.additionalErrorTextBox.Name = "additionalErrorTextBox";
-            this.additionalErrorTextBox.Size = new System.Drawing.Size(128, 22);
-            this.additionalErrorTextBox.TabIndex = 1;
+            this.additionalErrorTextBox.Size = new System.Drawing.Size(144, 50);
+            this.additionalErrorTextBox.TabIndex = 5;
+            this.additionalErrorTextBox.Text = "";
             this.additionalErrorTextBox.TextChanged += new System.EventHandler(this.additionalErrorTextBox_TextChanged);
             this.additionalErrorTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);
             // 
             // OKbutton
             // 
-            this.OKbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OKbutton.Location = new System.Drawing.Point(12, 67);
-            this.OKbutton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.OKbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.OKbutton.AutoSize = false;
+            this.OKbutton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OKbutton.Depth = 0;
+            this.OKbutton.DrawShadows = true;
+            this.OKbutton.HighEmphasis = true;
+            this.OKbutton.Icon = null;
+            this.OKbutton.Location = new System.Drawing.Point(190, 174);
+            this.OKbutton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.OKbutton.MouseState = MaterialSkin.MouseState.HOVER;
             this.OKbutton.Name = "OKbutton";
-            this.OKbutton.Size = new System.Drawing.Size(100, 27);
-            this.OKbutton.TabIndex = 2;
+            this.OKbutton.Size = new System.Drawing.Size(100, 36);
+            this.OKbutton.TabIndex = 6;
             this.OKbutton.Text = "OK";
+            this.OKbutton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.OKbutton.UseAccentColor = false;
             this.OKbutton.UseVisualStyleBackColor = true;
             this.OKbutton.Click += new System.EventHandler(this.OKbutton_Click);
             this.OKbutton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(120, 67);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(5, 5, 3, 5);
+            this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cancelButton.AutoSize = false;
+            this.cancelButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.cancelButton.Depth = 0;
+            this.cancelButton.DrawShadows = true;
+            this.cancelButton.HighEmphasis = true;
+            this.cancelButton.Icon = null;
+            this.cancelButton.Location = new System.Drawing.Point(300, 174);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(6);
+            this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 27);
-            this.cancelButton.TabIndex = 3;
+            this.cancelButton.Size = new System.Drawing.Size(100, 36);
+            this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Отмена";
+            this.cancelButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.cancelButton.UseAccentColor = false;
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             this.cancelButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);
@@ -87,12 +111,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 104);
+            this.ClientSize = new System.Drawing.Size(415, 222);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.OKbutton);
             this.Controls.Add(this.additionalErrorTextBox);
             this.Controls.Add(this.additionalErrorLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AdditionalErrorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -104,10 +128,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label additionalErrorLabel;
-        private System.Windows.Forms.TextBox additionalErrorTextBox;
-        private System.Windows.Forms.Button OKbutton;
-        private System.Windows.Forms.Button cancelButton;
+        private MaterialSkin.Controls.MaterialLabel additionalErrorLabel;
+        private MaterialSkin.Controls.MaterialTextBox additionalErrorTextBox;
+        private MaterialSkin.Controls.MaterialButton OKbutton;
+        private MaterialSkin.Controls.MaterialButton cancelButton;
     }
 }

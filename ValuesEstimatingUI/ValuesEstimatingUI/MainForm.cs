@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ValuesEstimating;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 
 namespace ValuesEstimatingUI
 {
-    public partial class MainForm : Form
+    public partial class MainForm : MaterialForm
     {
         // Серия измерений
         Values values = new Values();
@@ -23,6 +25,13 @@ namespace ValuesEstimatingUI
         public MainForm()
         {
             InitializeComponent();
+
+            // Тёмная тема окна
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.LightGreen900,
+                Primary.Green500, Accent.Green400, TextShade.WHITE);
 
             // Создание формы ввода основной погрешности
             mainErrorForm = new MainErrorForm();
@@ -42,6 +51,8 @@ namespace ValuesEstimatingUI
             // По умолчанию значение доверительной вероятности равно 0,95
             // в соответствии с правилами метрологии
             probabilityComboBox.SelectedIndex = 2;
+
+            
         }
 
         /// <summary>
@@ -97,7 +108,7 @@ namespace ValuesEstimatingUI
         {
             values.Probability = probabilityComboBox.SelectedIndex;
 
-            probabilityLabel.Focus();
+            probabiilityLabel.Focus();
         }
 
         /// <summary>
@@ -110,7 +121,7 @@ namespace ValuesEstimatingUI
             if (additionalErrorForm.DialogResult == DialogResult.OK)
                 values.AdditionalError = additionalErrorForm.AdditionalError;
 
-            this.ActiveControl = probabilityLabel;
+            this.ActiveControl = probabiilityLabel;
         }
 
         /// <summary>
@@ -120,7 +131,7 @@ namespace ValuesEstimatingUI
         {
             mainErrorForm.ShowDialog();
 
-            this.ActiveControl = probabilityLabel;
+            this.ActiveControl = probabiilityLabel;
         }
 
         /// <summary>
@@ -136,7 +147,7 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void Process()
         {
-            this.ActiveControl = probabilityLabel;
+            this.ActiveControl = probabiilityLabel;
 
             // Нахождение результата измерения
             values.Add(MeasurementTextBox.Text);
@@ -159,7 +170,7 @@ namespace ValuesEstimatingUI
             resultForm.Main = mainErrorForm.Main;
             resultForm.Probability = probabilityComboBox.SelectedIndex;
             resultForm.OriginalValues = values.OrigianlValues;
-            resultForm.ResultError = mainErrorForm.MainError;
+            resultForm.ResultError = values.ResultError;
 
             resultForm.ShowDialog();
         }
@@ -169,8 +180,8 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult quitAnswer = MessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+            DialogResult quitAnswer = MaterialMessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButtons.YesNo);
+           
             if (quitAnswer == DialogResult.Yes)
                 this.Close();
         }
@@ -181,7 +192,7 @@ namespace ValuesEstimatingUI
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm about = new AboutForm();
-            about.Show();
+            about.ShowDialog();
         }
 
         /// <summary>

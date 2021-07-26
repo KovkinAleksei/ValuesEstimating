@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ValuesEstimatingUI
 {
-    public partial class ResultForm : Form
+    public partial class ResultForm : MaterialForm
     {
         private List<double> _measures;
         private List<double> _originalValues;
@@ -22,7 +24,7 @@ namespace ValuesEstimatingUI
         private string _lastReducedError = "none";
         private double _normalizingValue = 0;
         private double _mainError = 0;
-        private int _probability;
+        private double _probability;
         private double _resultError;
 
         /// <summary>
@@ -44,6 +46,9 @@ namespace ValuesEstimatingUI
             set
             {
                 _originalValues = value;
+
+                resultInfoLabel.Text += ", n = ";
+                resultInfoLabel.Text += _measures.Count.ToString();
             }
         }
 
@@ -132,7 +137,16 @@ namespace ValuesEstimatingUI
         {
             set
             {
-                _probability = value;
+                if (value == 0)
+                    _probability = 0.999;
+                else if (value == 1)
+                    _probability = 0.99;
+                else if (value == 2)
+                    _probability = 0.95;
+                else if (value == 3)
+                    _probability = 0.9;
+
+                resultInfoLabel.Text += ", P = " + _probability;
             }
         }
 
@@ -151,6 +165,13 @@ namespace ValuesEstimatingUI
         {
             InitializeComponent();
 
+            // Темная тема окна
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.LightGreen900,
+                Primary.Green500, Accent.Green400, TextShade.WHITE);
+
             // Вывод результатов
             double[] missesArray = misses.ToArray();
             string missesStr = "";
@@ -167,8 +188,8 @@ namespace ValuesEstimatingUI
             if (missesInfoLabel.Text == "")
                 missesInfoLabel.Text = "нет";
 
-                resultInfoLabel.Text = Math.Round(result, 2).ToString();
-            resultErrorInfoLabel.Text = Math.Round(resultError, 2).ToString();
+            resultInfoLabel.Text = "X = " + Math.Round(result, 2).ToString() + " ± " +
+                Math.Round(resultError, 2).ToString();
 
             this.ActiveControl = missesLabel;
         }
@@ -216,13 +237,13 @@ namespace ValuesEstimatingUI
 
             sw.WriteLine(measures);
 
-            if (_probability == 0)
+            if (_probability == 0.999)
                 sw.WriteLine("Доверительная вероятность: 0,999");
-            else if (_probability == 1)
+            else if (_probability == 0.99)
                 sw.WriteLine("Доверительная вероятность: 0,99");
-            else if (_probability == 2)
+            else if (_probability == 0.95)
                 sw.WriteLine("Доверительная вероятность: 0,95");
-            else if (_probability == 3)
+            else if (_probability == 0.9)
                 sw.WriteLine("Доверительная вероятность: 0,9");
 
             if (_additionalError != 0)
@@ -269,7 +290,7 @@ namespace ValuesEstimatingUI
             sw.WriteLine("Результаты");
             sw.WriteLine("Результат измерений: " + resultInfoLabel.Text);
             sw.WriteLine("Промахи: " + missesInfoLabel.Text);
-            sw.WriteLine("Общая доверительная граница погрешности: " + resultErrorInfoLabel.Text);
+            sw.WriteLine("Общая доверительная граница погрешности: " + _resultError.ToString());
 
             string noMissesMeasures = "Серия измерений без промахов: ";
 

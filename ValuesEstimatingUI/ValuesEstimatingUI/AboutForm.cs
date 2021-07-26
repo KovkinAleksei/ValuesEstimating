@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ValuesEstimatingUI
 {
-    public partial class AboutForm : Form
+    public partial class AboutForm : MaterialForm
     {
         public AboutForm()
         {
             InitializeComponent();
+
+            // Темная тема окна
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.LightGreen900,
+                Primary.Green500, Accent.Green400, TextShade.WHITE);
         }
 
         /// <summary>
@@ -47,6 +56,14 @@ namespace ValuesEstimatingUI
             {
                 MessageBox.Show("Невозможно перейти по ссылке");
             }
+        }
+
+        /// <summary>
+        /// Нажатие на кнопку Закрыть
+        /// </summary>
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
