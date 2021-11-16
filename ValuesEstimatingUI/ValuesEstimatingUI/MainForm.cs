@@ -20,7 +20,10 @@ namespace ValuesEstimatingUI
         Values values = new Values();
         MainErrorForm mainErrorForm;
         AdditionalErrorForm additionalErrorForm;
-        ResultForm resultForm;
+        ResultForm resultForm; 
+        HelpForm help = new HelpForm();
+        AboutForm about = new AboutForm();
+        ExitForm exit = new ExitForm();
 
         public MainForm()
         {
@@ -147,8 +150,6 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void Process()
         {
-            this.ActiveControl = probabiilityLabel;
-
             // Нахождение результата измерения
             values.Add(MeasurementTextBox.Text);
             values.FindResult();
@@ -173,6 +174,8 @@ namespace ValuesEstimatingUI
             resultForm.ResultError = values.ResultError;
 
             resultForm.ShowDialog();
+
+            this.ActiveControl = MeasurementTextBox;
         }
 
         /// <summary>
@@ -180,10 +183,11 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult quitAnswer = MaterialMessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButtons.YesNo);
-           
-            if (quitAnswer == DialogResult.Yes)
-                this.Close();
+            if (exit == null || exit.IsDisposed)
+                exit = new ExitForm();
+
+            exit.ShowDialog();
+            exit.BringToFront();
         }
 
         /// <summary>
@@ -191,8 +195,11 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutForm about = new AboutForm();
-            about.ShowDialog();
+            if (about == null || about.IsDisposed)
+                about = new AboutForm();
+
+            about.Show();
+            about.BringToFront();
         }
 
         /// <summary>
@@ -200,8 +207,11 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HelpForm help = new HelpForm();
+            if (help == null || help.IsDisposed)
+                help = new HelpForm();
+
             help.Show();
+            help.BringToFront();
         }
 
         /// <summary>
@@ -209,7 +219,7 @@ namespace ValuesEstimatingUI
         /// </summary>
         private void ShortCut(object sender, KeyEventArgs e)
         {
-            // Вывод окна помощи при нажатии F1
+           // Вывод окна помощи при нажатии F1
             if (e.KeyCode == Keys.F1)
             {
                 HelpForm helpForm= new HelpForm();

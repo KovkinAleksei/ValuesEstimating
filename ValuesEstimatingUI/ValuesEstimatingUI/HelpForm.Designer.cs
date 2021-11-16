@@ -50,14 +50,15 @@
             this.helpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.helpTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.helpTextBox.Hint = "";
-            this.helpTextBox.Location = new System.Drawing.Point(0, 63);
+            this.helpTextBox.Location = new System.Drawing.Point(15, 75);
             this.helpTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.helpTextBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.helpTextBox.Name = "helpTextBox";
             this.helpTextBox.ReadOnly = true;
             this.helpTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.helpTextBox.Size = new System.Drawing.Size(573, 238);
+            this.helpTextBox.Size = new System.Drawing.Size(545, 226);
             this.helpTextBox.TabIndex = 3;
+            this.helpTextBox.TabStop = false;
             this.helpTextBox.Text = "";
             // 
             // closeButton
@@ -91,6 +92,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "HelpForm";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Помощь";
             this.ResumeLayout(false);

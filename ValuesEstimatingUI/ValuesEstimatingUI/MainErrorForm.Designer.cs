@@ -87,12 +87,10 @@
             // 
             // mainErrorTextBox
             // 
-            this.mainErrorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mainErrorTextBox.Depth = 0;
             this.mainErrorTextBox.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mainErrorTextBox.Location = new System.Drawing.Point(15, 135);
+            this.mainErrorTextBox.Location = new System.Drawing.Point(15, 141);
             this.mainErrorTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.mainErrorTextBox.MaxLength = 50;
             this.mainErrorTextBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -114,12 +112,12 @@
             this.errorCharacterComboBox.DropDownHeight = 174;
             this.errorCharacterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.errorCharacterComboBox.DropDownWidth = 121;
-            this.errorCharacterComboBox.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.errorCharacterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.errorCharacterComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.errorCharacterComboBox.FormattingEnabled = true;
             this.errorCharacterComboBox.IntegralHeight = false;
             this.errorCharacterComboBox.ItemHeight = 43;
-            this.errorCharacterComboBox.Location = new System.Drawing.Point(15, 289);
+            this.errorCharacterComboBox.Location = new System.Drawing.Point(15, 295);
             this.errorCharacterComboBox.MaxDropDownItems = 4;
             this.errorCharacterComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.errorCharacterComboBox.Name = "errorCharacterComboBox";
@@ -133,7 +131,7 @@
             this.accuracyClassLabel.AutoSize = true;
             this.accuracyClassLabel.Depth = 0;
             this.accuracyClassLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.accuracyClassLabel.Location = new System.Drawing.Point(241, 246);
+            this.accuracyClassLabel.Location = new System.Drawing.Point(241, 252);
             this.accuracyClassLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.accuracyClassLabel.Name = "accuracyClassLabel";
             this.accuracyClassLabel.Size = new System.Drawing.Size(193, 19);
@@ -154,7 +152,7 @@
             this.accuracyClassComboBox.FormattingEnabled = true;
             this.accuracyClassComboBox.IntegralHeight = false;
             this.accuracyClassComboBox.ItemHeight = 43;
-            this.accuracyClassComboBox.Location = new System.Drawing.Point(15, 231);
+            this.accuracyClassComboBox.Location = new System.Drawing.Point(15, 237);
             this.accuracyClassComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.accuracyClassComboBox.MaxDropDownItems = 4;
             this.accuracyClassComboBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -169,7 +167,7 @@
             this.errorCharacterLabel.AutoSize = true;
             this.errorCharacterLabel.Depth = 0;
             this.errorCharacterLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.errorCharacterLabel.Location = new System.Drawing.Point(241, 305);
+            this.errorCharacterLabel.Location = new System.Drawing.Point(241, 311);
             this.errorCharacterLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.errorCharacterLabel.Name = "errorCharacterLabel";
             this.errorCharacterLabel.Size = new System.Drawing.Size(323, 19);
@@ -182,7 +180,7 @@
             this.orLabel.Depth = 0;
             this.orLabel.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.orLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.orLabel.Location = new System.Drawing.Point(277, 184);
+            this.orLabel.Location = new System.Drawing.Point(277, 190);
             this.orLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.orLabel.Name = "orLabel";
             this.orLabel.Size = new System.Drawing.Size(61, 41);
@@ -194,7 +192,7 @@
             this.normalizingValueTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.normalizingValueTextBox.Depth = 0;
             this.normalizingValueTextBox.Font = new System.Drawing.Font("Roboto", 12F);
-            this.normalizingValueTextBox.Location = new System.Drawing.Point(14, 347);
+            this.normalizingValueTextBox.Location = new System.Drawing.Point(14, 353);
             this.normalizingValueTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.normalizingValueTextBox.MaxLength = 50;
             this.normalizingValueTextBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -211,7 +209,7 @@
             this.mainErrorLabel.AutoSize = true;
             this.mainErrorLabel.Depth = 0;
             this.mainErrorLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mainErrorLabel.Location = new System.Drawing.Point(240, 150);
+            this.mainErrorLabel.Location = new System.Drawing.Point(240, 156);
             this.mainErrorLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainErrorLabel.Name = "mainErrorLabel";
             this.mainErrorLabel.Size = new System.Drawing.Size(313, 19);
@@ -223,7 +221,7 @@
             this.normalizingValueLabel.AutoSize = true;
             this.normalizingValueLabel.Depth = 0;
             this.normalizingValueLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.normalizingValueLabel.Location = new System.Drawing.Point(240, 362);
+            this.normalizingValueLabel.Location = new System.Drawing.Point(240, 368);
             this.normalizingValueLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.normalizingValueLabel.Name = "normalizingValueLabel";
             this.normalizingValueLabel.Size = new System.Drawing.Size(326, 19);
@@ -235,7 +233,7 @@
             this.reducedErrorBeginningTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.reducedErrorBeginningTextBox.Depth = 0;
             this.reducedErrorBeginningTextBox.Font = new System.Drawing.Font("Roboto", 12F);
-            this.reducedErrorBeginningTextBox.Location = new System.Drawing.Point(14, 438);
+            this.reducedErrorBeginningTextBox.Location = new System.Drawing.Point(14, 444);
             this.reducedErrorBeginningTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.reducedErrorBeginningTextBox.MaxLength = 50;
             this.reducedErrorBeginningTextBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -251,8 +249,8 @@
             // 
             this.reducedErrorEndTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.reducedErrorEndTextBox.Depth = 0;
-            this.reducedErrorEndTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.reducedErrorEndTextBox.Location = new System.Drawing.Point(138, 437);
+            this.reducedErrorEndTextBox.Font = new System.Drawing.Font("Roboto", 12F);
+            this.reducedErrorEndTextBox.Location = new System.Drawing.Point(138, 443);
             this.reducedErrorEndTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.reducedErrorEndTextBox.MaxLength = 50;
             this.reducedErrorEndTextBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -270,7 +268,7 @@
             this.reducedErrorSeparatorLabel.Depth = 0;
             this.reducedErrorSeparatorLabel.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.reducedErrorSeparatorLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H3;
-            this.reducedErrorSeparatorLabel.Location = new System.Drawing.Point(113, 432);
+            this.reducedErrorSeparatorLabel.Location = new System.Drawing.Point(113, 438);
             this.reducedErrorSeparatorLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.reducedErrorSeparatorLabel.Name = "reducedErrorSeparatorLabel";
             this.reducedErrorSeparatorLabel.Size = new System.Drawing.Size(21, 58);
@@ -282,7 +280,7 @@
             this.reducedErrorLabel.AutoSize = true;
             this.reducedErrorLabel.Depth = 0;
             this.reducedErrorLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.reducedErrorLabel.Location = new System.Drawing.Point(13, 413);
+            this.reducedErrorLabel.Location = new System.Drawing.Point(13, 419);
             this.reducedErrorLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.reducedErrorLabel.Name = "reducedErrorLabel";
             this.reducedErrorLabel.Size = new System.Drawing.Size(540, 19);
@@ -298,7 +296,7 @@
             this.OKbutton.DrawShadows = true;
             this.OKbutton.HighEmphasis = true;
             this.OKbutton.Icon = null;
-            this.OKbutton.Location = new System.Drawing.Point(385, 486);
+            this.OKbutton.Location = new System.Drawing.Point(385, 504);
             this.OKbutton.Margin = new System.Windows.Forms.Padding(6);
             this.OKbutton.MouseState = MaterialSkin.MouseState.HOVER;
             this.OKbutton.Name = "OKbutton";
@@ -320,7 +318,7 @@
             this.cancelButton.DrawShadows = true;
             this.cancelButton.HighEmphasis = true;
             this.cancelButton.Icon = null;
-            this.cancelButton.Location = new System.Drawing.Point(497, 486);
+            this.cancelButton.Location = new System.Drawing.Point(497, 504);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(6);
             this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelButton.Name = "cancelButton";
@@ -337,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 537);
+            this.ClientSize = new System.Drawing.Size(612, 555);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.OKbutton);
             this.Controls.Add(this.reducedErrorLabel);
@@ -359,6 +357,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainErrorForm";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Основная погрешность";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);

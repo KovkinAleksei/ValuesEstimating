@@ -40,7 +40,7 @@
             this.helpButton = new MaterialSkin.Controls.MaterialButton();
             this.quitButton = new MaterialSkin.Controls.MaterialButton();
             this.MenuDevider = new MaterialSkin.Controls.MaterialDivider();
-            this.MeasurementTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.MeasurementTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.SuspendLayout();
             // 
             // InfoLabel
@@ -64,16 +64,17 @@
             this.infoLabel2.Location = new System.Drawing.Point(14, 128);
             this.infoLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoLabel2.Name = "infoLabel2";
-            this.infoLabel2.Size = new System.Drawing.Size(156, 19);
+            this.infoLabel2.Size = new System.Drawing.Size(316, 19);
             this.infoLabel2.TabIndex = 26;
-            this.infoLabel2.Text = "отделяется запятой.";
+            this.infoLabel2.Text = "вещественных чисел отделяется запятой.";
             // 
             // probabiilityLabel
             // 
+            this.probabiilityLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.probabiilityLabel.AutoSize = true;
             this.probabiilityLabel.Depth = 0;
             this.probabiilityLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.probabiilityLabel.Location = new System.Drawing.Point(14, 208);
+            this.probabiilityLabel.Location = new System.Drawing.Point(12, 253);
             this.probabiilityLabel.Margin = new System.Windows.Forms.Padding(5);
             this.probabiilityLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.probabiilityLabel.Name = "probabiilityLabel";
@@ -83,6 +84,7 @@
             // 
             // probabilityComboBox
             // 
+            this.probabilityComboBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.probabilityComboBox.AutoResize = false;
             this.probabilityComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.probabilityComboBox.Depth = 0;
@@ -90,29 +92,30 @@
             this.probabilityComboBox.DropDownHeight = 174;
             this.probabilityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.probabilityComboBox.DropDownWidth = 121;
-            this.probabilityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.probabilityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.probabilityComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.probabilityComboBox.FormattingEnabled = true;
             this.probabilityComboBox.IntegralHeight = false;
             this.probabilityComboBox.ItemHeight = 43;
-            this.probabilityComboBox.Location = new System.Drawing.Point(15, 234);
+            this.probabilityComboBox.Location = new System.Drawing.Point(11, 282);
             this.probabilityComboBox.Margin = new System.Windows.Forms.Padding(5);
             this.probabilityComboBox.MaxDropDownItems = 4;
             this.probabilityComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.probabilityComboBox.Name = "probabilityComboBox";
-            this.probabilityComboBox.Size = new System.Drawing.Size(121, 49);
+            this.probabilityComboBox.Size = new System.Drawing.Size(119, 49);
             this.probabilityComboBox.TabIndex = 30;
             this.probabilityComboBox.SelectedIndexChanged += new System.EventHandler(this.probabilityComboBox_SelectedIndexChanged);
             this.probabilityComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);
             // 
             // additionalErrorButton
             // 
+            this.additionalErrorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.additionalErrorButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.additionalErrorButton.Depth = 0;
             this.additionalErrorButton.DrawShadows = true;
             this.additionalErrorButton.HighEmphasis = true;
             this.additionalErrorButton.Icon = null;
-            this.additionalErrorButton.Location = new System.Drawing.Point(15, 294);
+            this.additionalErrorButton.Location = new System.Drawing.Point(9, 342);
             this.additionalErrorButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.additionalErrorButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.additionalErrorButton.Name = "additionalErrorButton";
@@ -127,13 +130,14 @@
             // 
             // mainErrorButton
             // 
+            this.mainErrorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.mainErrorButton.AutoSize = false;
             this.mainErrorButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainErrorButton.Depth = 0;
             this.mainErrorButton.DrawShadows = true;
             this.mainErrorButton.HighEmphasis = true;
             this.mainErrorButton.Icon = null;
-            this.mainErrorButton.Location = new System.Drawing.Point(15, 342);
+            this.mainErrorButton.Location = new System.Drawing.Point(9, 390);
             this.mainErrorButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mainErrorButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainErrorButton.Name = "mainErrorButton";
@@ -155,7 +159,7 @@
             this.processButton.DrawShadows = true;
             this.processButton.HighEmphasis = true;
             this.processButton.Icon = null;
-            this.processButton.Location = new System.Drawing.Point(643, 363);
+            this.processButton.Location = new System.Drawing.Point(600, 444);
             this.processButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.processButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.processButton.Name = "processButton";
@@ -246,16 +250,19 @@
             // 
             // MeasurementTextBox
             // 
+            this.MeasurementTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MeasurementTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.MeasurementTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MeasurementTextBox.Depth = 0;
-            this.MeasurementTextBox.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MeasurementTextBox.Location = new System.Drawing.Point(12, 150);
-            this.MeasurementTextBox.MaxLength = 500;
-            this.MeasurementTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.MeasurementTextBox.Multiline = false;
+            this.MeasurementTextBox.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MeasurementTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.MeasurementTextBox.Hint = "";
+            this.MeasurementTextBox.Location = new System.Drawing.Point(11, 157);
+            this.MeasurementTextBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.MeasurementTextBox.Name = "MeasurementTextBox";
-            this.MeasurementTextBox.Size = new System.Drawing.Size(731, 50);
-            this.MeasurementTextBox.TabIndex = 27;
+            this.MeasurementTextBox.Size = new System.Drawing.Size(689, 75);
+            this.MeasurementTextBox.TabIndex = 39;
             this.MeasurementTextBox.Text = "";
             this.MeasurementTextBox.TextChanged += new System.EventHandler(this.MeasurementTextBox_TextChanged);
             this.MeasurementTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);
@@ -265,14 +272,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(756, 413);
+            this.ClientSize = new System.Drawing.Size(713, 495);
+            this.Controls.Add(this.MeasurementTextBox);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.processButton);
             this.Controls.Add(this.mainErrorButton);
             this.Controls.Add(this.additionalErrorButton);
             this.Controls.Add(this.probabilityComboBox);
             this.Controls.Add(this.probabiilityLabel);
-            this.Controls.Add(this.MeasurementTextBox);
             this.Controls.Add(this.infoLabel2);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.aboutButton);
@@ -283,6 +290,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ValuesEstimating";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ShortCut);
@@ -303,7 +311,7 @@
         private MaterialSkin.Controls.MaterialButton helpButton;
         private MaterialSkin.Controls.MaterialButton quitButton;
         private MaterialSkin.Controls.MaterialDivider MenuDevider;
-        private MaterialSkin.Controls.MaterialTextBox MeasurementTextBox;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox MeasurementTextBox;
     }
 }
 

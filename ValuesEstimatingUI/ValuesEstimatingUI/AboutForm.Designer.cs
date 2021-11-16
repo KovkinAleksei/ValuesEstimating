@@ -44,37 +44,40 @@
             this.eMailLabel.AutoSize = true;
             this.eMailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.eMailLabel.Location = new System.Drawing.Point(11, 179);
+            this.eMailLabel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.eMailLabel.Name = "eMailLabel";
-            this.eMailLabel.Size = new System.Drawing.Size(150, 20);
+            this.eMailLabel.Size = new System.Drawing.Size(214, 20);
             this.eMailLabel.TabIndex = 2;
-            this.eMailLabel.Text = "E-mail для отзыва:";
+            this.eMailLabel.Text = "E-mail для обратной связи:";
             // 
             // gitHubLabel
             // 
             this.gitHubLabel.AutoSize = true;
             this.gitHubLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gitHubLabel.Location = new System.Drawing.Point(11, 240);
+            this.gitHubLabel.Location = new System.Drawing.Point(9, 213);
+            this.gitHubLabel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.gitHubLabel.Name = "gitHubLabel";
-            this.gitHubLabel.Size = new System.Drawing.Size(64, 20);
+            this.gitHubLabel.Size = new System.Drawing.Size(216, 20);
             this.gitHubLabel.TabIndex = 3;
-            this.gitHubLabel.Text = "GitHub:";
+            this.gitHubLabel.Text = "Исходные данные проекта:";
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearLabel.Location = new System.Drawing.Point(11, 331);
+            this.yearLabel.Location = new System.Drawing.Point(9, 322);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(45, 20);
+            this.yearLabel.Size = new System.Drawing.Size(286, 20);
             this.yearLabel.TabIndex = 4;
-            this.yearLabel.Text = "2021";
+            this.yearLabel.Text = "Ковкин Алексей и Бойцов Иван 2021";
             // 
             // eMailLinkLabel
             // 
             this.eMailLinkLabel.AutoSize = true;
             this.eMailLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.eMailLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.eMailLinkLabel.Location = new System.Drawing.Point(133, 179);
+            this.eMailLinkLabel.Location = new System.Drawing.Point(194, 179);
+            this.eMailLinkLabel.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.eMailLinkLabel.Name = "eMailLinkLabel";
             this.eMailLinkLabel.Size = new System.Drawing.Size(158, 20);
             this.eMailLinkLabel.TabIndex = 5;
@@ -87,12 +90,13 @@
             this.gitHubLinkLabel.AutoSize = true;
             this.gitHubLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gitHubLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.gitHubLinkLabel.Location = new System.Drawing.Point(58, 240);
+            this.gitHubLinkLabel.Location = new System.Drawing.Point(194, 213);
+            this.gitHubLinkLabel.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.gitHubLinkLabel.Name = "gitHubLinkLabel";
-            this.gitHubLinkLabel.Size = new System.Drawing.Size(234, 20);
+            this.gitHubLinkLabel.Size = new System.Drawing.Size(188, 20);
             this.gitHubLinkLabel.TabIndex = 6;
             this.gitHubLinkLabel.TabStop = true;
-            this.gitHubLinkLabel.Text = "KovkinAleksei/ValuesEstimating";
+            this.gitHubLinkLabel.Text = "GitHub/ValuesEstimating";
             this.gitHubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gitHubLinkLabel_LinkClicked);
             // 
             // valuesEstimatingLabel
@@ -156,6 +160,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AboutForm";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "О программе";
             this.ResumeLayout(false);

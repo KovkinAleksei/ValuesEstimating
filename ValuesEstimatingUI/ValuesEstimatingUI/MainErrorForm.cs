@@ -287,7 +287,7 @@ namespace ValuesEstimatingUI
             // При выборе аддитивной погрешности
             if (errorCharacterComboBox.SelectedIndex == 1)
             {
-                this.Height = 475;
+                this.Height = 478;
 
                 // Скрываются элементы ввода приведённой погрешности 
                 reducedErrorBeginningTextBox.Visible = false;
@@ -305,7 +305,7 @@ namespace ValuesEstimatingUI
             // При выборе мультипликативной погрешности или "Не выбрано"
             else if (errorCharacterComboBox.SelectedIndex == 0 || errorCharacterComboBox.SelectedIndex == 2)
             {
-                this.Height = 415;
+                this.Height = 418;
 
                 // Скрываются элементы ввода нормирующей величины
                 normalizingValueLabel.Visible = false;
@@ -323,7 +323,7 @@ namespace ValuesEstimatingUI
             // При выборе аддитивной и мультипликативной погрешности
             else if (errorCharacterComboBox.SelectedIndex == 3)
             {
-                this.Height = 552;
+                this.Height = 555;
 
                 // Появляются элементы ввода нормирующей величины
                 normalizingValueLabel.Visible = true;
